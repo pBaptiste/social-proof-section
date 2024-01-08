@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import starIcon from '../images/icon-star.svg'
+
+const { rating, customStyles } = Astro.props
+
+---
+
+<div class={`${customStyles} relative bg-background rounded-lg pt-4 pb-[15px] max-w-[327px] xl:min-w-[445px] flex flex-col xl:flex-row xl:pl-8 items-center gap-[15.23px] xl:gap-[32.5]`}>
+    <!-- <Image src={starIcon} alt=""/> -->
+    <div class="flex gap-[8.45px]">
+        <Image src={starIcon} alt=""/>
+        <Image src={starIcon} alt=""/>
+        <Image src={starIcon} alt=""/>
+        <Image src={starIcon} alt=""/>
+        <Image src={starIcon} alt=""/>
+    </div>
+
+    <p class="text-primary text-[1.063rem] font-bold">{rating}</p>
+</div>

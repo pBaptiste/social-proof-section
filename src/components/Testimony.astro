@@ -1,0 +1,13 @@
+---
+    import { Image } from "astro:assets";
+    const { name, quote, profilePic, customStyles } = Astro.props
+---
+
+<article class={`${customStyles} relative max-w-[327px] xl:max-w-[350px] max-h-[248px] bg-primary pt-10 px-8 pb-[35px] rounded-lg`}>
+    <div class="flex items-center gap-[23px] mb-6 xl:mb-[31px]">
+            <Image src={profilePic} alt={`Headshot of ${name}`} width={40} height={40} class="rounded-[40px]" />
+            <h2 class="text-white text-[1.063rem] font-bold leading-none">{name}<span class="mt-1 block text-accent font-normal">Verified Buyer</span></h2>
+    </div>
+    <p class="text-white text-[1.063rem] leading-[1.375rem] tracking-[-0.304px] font-medium">{quote}</p>
+
+</article>

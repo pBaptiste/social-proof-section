@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Rating from "../components/Rating.astro";
+import Testimony from "../components/Testimony.astro";
+import colton from '../images/image-colton.jpg'
+import irene from '../images/image-irene.jpg'
+import anne from '../images/image-anne.jpg'
+
+const ratings = [
+  {
+    rating: "Rated 5 Stars in Reviews",
+	customStyles: 'xl:right-[95px]',
+  },
+  {
+    rating: "Rated 5 Stars in Report Guru",
+	customStyles: 'xl:right-[47px]',
+  },
+  {
+    rating: "Rated 5 Stars in BestTech",
+	customStyles: '',
+  },
+];
+
+const testimonies = [
+	{
+		name: 'Colton Smith',
+		quote: '“ We needed the same printed design as the one we had ordered a week prior. Not only did they find the original order, but we also received it in time. Excellent! ”',
+		profilePic: colton,
+		customStyles: '',
+	},
+	{
+		name: 'Irene Roberts',
+		quote: '“ Customer service is always excellent and very quick turn around. Completely delighted with the simplicity of the purchase and the speed of delivery.”',
+		profilePic: irene,
+		customStyles: 'xl:bottom-[-16px]',
+	},
+	{
+		name: 'Anne Wallace',
+		quote: '“ Put an order with this company and can only praise them for the very high standard. Will definitely use them again and recommend them to everyone! ”',
+		profilePic: anne,
+		customStyles: 'xl:bottom-[-32px]',
+	},
+]
+---
+
+<Layout title="Social Proof">
+  <main class="min-h-screen patterns">
+    <section class="pt-[82px] xl:pt-[118px] px-6 pb-[99px] xl:pb-0 flex flex-col items-center">
+
+      <div class="mb-[49px] xl:mb-[71px] flex flex-col xl:min-w-[1110px] xl:flex-row xl:justify-between xl:items-center">
+        <div class="max-w-[325px] xl:max-w-[445px] mb-[39px] xl:mb-0 xl:mr-[125px]">
+          <h1
+            class="text-primary text-center xl:text-start text-[2.5rem] xl:text-[3.5rem] leading-8 xl:leading-[3rem] tracking-[-1.429px] xl:tracking-[-2px] font-bold mb-[17px] xl:mb-[25.98px]"
+          >
+            10,000+ of our users love our products.
+          </h1>
+          <p
+            class="text-secondary text-center xl:text-start text-[1.188rem] leading-[1.563rem] tracking-[-0.633px] font-medium"
+          >
+            We only provide great products combined with excellent customer
+            service. See what our satisfied customers are saying about our
+            services.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          {ratings.map((item) => <Rating rating={item.rating} customStyles={item.customStyles}/>)}
+        </div>
+      </div>
+
+	  <div class="flex flex-col xl:flex-row xl:justify-between gap-4 xl:gap-0 xl:min-w-[1110px]">
+		{
+			testimonies.map(item => ( 
+				<Testimony name={item.name} quote={item.quote} profilePic={item.profilePic} customStyles={item.customStyles}/>
+			))
+		}
+	  </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+	.patterns {
+		background: url('/src/images/bg-pattern-top-mobile.svg') top  left no-repeat fixed, url('/src/images/bg-pattern-bottom-mobile.svg') right  bottom   no-repeat;
+	}
+
+	@media (min-width: 768px) {
+		.patterns {
+			background: url('/src/images/bg-pattern-top-desktop.svg') top left no-repeat, url('/src/images/bg-pattern-bottom-desktop.svg') right bottom no-repeat;
+		}
+	}
+</style>
